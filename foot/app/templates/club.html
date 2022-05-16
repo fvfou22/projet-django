@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block content %}
+
+<div class="send">
+    <table class="table table-dark table-striped">
+    
+    <form action method="POST">
+    {% csrf_token%}
+        <th></th>
+        <th>{{form.as_p}}</th>
+        <th><input type ="submit" name="" value="envoyer"></th>
+    </form>
+</table>
+</div>
+
+{% endblock %}
+
