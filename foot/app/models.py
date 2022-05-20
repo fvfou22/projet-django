@@ -8,7 +8,7 @@ class Club(models.Model):
     #coach = models.CharField(max_length = 100, default=None) 
 
     def __str__(self):
-        chaine = f"{self.nom_club} évoluant en {self.ligue_club} et classé {self.classement_club}"
+        chaine = f"{self.nom_club} "
         return chaine
     
     def dico(self):
@@ -16,15 +16,14 @@ class Club(models.Model):
 
 
 
-
 class Foot(models.Model): 
     prenom_joueur = models.CharField(max_length = 100)
     nom_joueur = models.CharField(max_length = 100) 
-    club = models.CharField(max_length=100) 
+    club = models.ForeignKey(Club, blank=True, null=True, on_delete=models.CASCADE)
     #poste = models.CharField(max_length=100, default=None)
 
     def __str__(self):
-        chaine = f"{self.prenom_joueur} {self.nom_joueur} évoluant au {self.club}"
+        chaine = f"{self.prenom_joueur} {self.nom_joueur}"
         return chaine
 
     def dico(self):
